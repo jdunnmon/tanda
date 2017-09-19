@@ -125,3 +125,56 @@ class PadCropTransformer(ImageTransformer):
         # For channel dimension don't do any cropping
         crops += [(0,0)]
         return np.reshape(crop(img, crops, copy=True), [self.size])
+
+
+class SegmentTransformer(ImageTransformer):
+
+    def __init__(self, tfs, dims):
+        normal_path = '/home/jdunnmon/research/re/projects/tanda/data/ddsm/benign_malignant/normals'
+        normals = [os.path.join(normal_path, file) for file in os.listdir(normal_path)]
+        normal_file = np.random.choice(normals)
+
+        #open and convert to arr
+        tmp = Image.open(normal_file)
+        tmp = np.array(tmp.resize((dims[0],dims[1])),dtype=np.uint8)
+        self.target = tmp
+        super(SegmentTransformer, self).__init__(tfs, dims)
+
+    def post_tf(self, img):
+        return np.reshape(img[:,:,0], [self.output_size])
+
+    def transform_basic(self, X, train=True):
+        return np.vstack([
+            self.post_tf(self.pre_tf(copy.deepcopy(X[i]))) for i in range(X.shape[0])
+        ])
+
+    def _apply(self, x, tf_seq, emit_incremental):
+        """Apply a sequence of TFs to data point x
+        
+        @tf_seq: a list of indices referencing `self.tfs`
+        @emit_incremental: If true, returns each incrementally-transformed
+            image, _including_ the original image
+        """
+        # NOTE that we include the un-transformed datapoint as the first object!
+        xcs = [self.post_tf(self.pre_tf(copy.deepcopy(x)))]
+
+        # Apply the TFs, in the given order by default
+        xc = self.pre_tf(copy.deepcopy(x))
+        for i in tf_seq:
+            xc = self.tfs[i](xc, target=self.target)
+            xcs.append(self.post_tf(copy.deepcopy(xc)))
+
+        # Return either just the final transformed version, or all the incremental ones
+        if emit_incremental:
+            return np.vstack(xcs)
+        else:
+            return xcs[-1]
+
+    @property
+    def output_dims(self):
+        return [self.dims[0], self.dims[1], 1]
+
+    @property
+    def output_size(self):
+        return np.prod(self.output_dims)
+
