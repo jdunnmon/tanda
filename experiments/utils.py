@@ -16,6 +16,20 @@ def num_procs_open(procs):
         k += (p.poll() is None)
     return k
 
+def attach_debug_op(t, message=None, first_n=1, summarize=20, shape_only=True):
+    """
+    Helper to attach tf.Print to the computation graph to print for debugging.
+
+    @t: the Tensor
+    @message: The debugging message; by default, is `t.name`
+    @first_n: Print out the `first_n` times, or if negative, print always.
+    @summarize: Print out this many elements of the tensor
+    @shape_only: If True, only print shape; else print tensor as well.
+    """
+    message = message if message is not None else t.name
+    ops     = [tf.shape(t)] if shape_only else [tf.shape(t), t]
+    return tf.Print(t, ops, message=message, first_n=first_n, summarize=20)
+
 
 def create_subdirs(log_path, sub_dir, run_index):
      # Create subdirectory paths

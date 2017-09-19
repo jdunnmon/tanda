@@ -7,7 +7,7 @@ import tensorflow.contrib.slim as slim
 from collections import OrderedDict
 from experiments.utils import *
 from functools import partial
-from tanda.discriminator import DCNN, ResNetDefault
+from tanda.discriminator import DCNN, ResNetDefault, GenericImageCNN
 from tanda.generator import (
     GRUGenerator, LSTMGenerator, MeanFieldGenerator
 )
@@ -31,6 +31,7 @@ TRANSFORMERS = {
 
 DISCRIMINATORS = {
     'dcnn':      DCNN,
+    'image_cnn': GenericImageCNN,
     'resnet':    ResNetDefault,
 }
 
@@ -42,6 +43,7 @@ OPTIMIZERS = {
 
 LR_SCHEDULES = [
     [(0, 0.1), (8000, 0.01), (12000, 0.001)],
+    [(0, 1e-3), (200, 5e-4), (400, 1e-4)], #for mammo
 ]
 #####################################################################
 
