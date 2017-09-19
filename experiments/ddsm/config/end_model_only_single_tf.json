@@ -1,0 +1,13 @@
+{
+    "name" : "end_model_single_good_tfs",
+    "parameters" : {
+        "end_batch_size" : [25],
+        "end_epochs" : [100],
+        "end_model_only": [true],
+        "n_per_class": [150],
+        "end_lr": [1e-4],
+        "is_test" : [true], 
+        "p_transform_init" : [0.40],
+        "discriminator" : ["dcnn"] 
+    }
+}

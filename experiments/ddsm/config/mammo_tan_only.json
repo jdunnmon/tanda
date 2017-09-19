@@ -1,0 +1,41 @@
+{
+    "name" : "benign_malignant_tan_only_tfs15_mse",
+    "parameters" : {
+      "generator" : [
+            {
+                "model" : "lstm",
+                "config" : {
+                    "n_stack": 1,
+                    "feed_actions": true, 
+                    "init_type": "train"
+                }
+            },
+            {
+                "model" : "mean_field",
+                "config" : {
+                    "feed_actions": false, 
+                    "init_type": "train"
+                }
+            }
+        ],
+        "batch_size" : [30],
+        "n_epochs" : [4],
+        "tfs": [15],
+        "data_dir":["/mnt/repos/tanda/experiments/ddsm/data/benign_malignant"],
+        "label_json": ["/mnt/repos/tanda/experiments/ddsm/data/json/mass_to_label.json"],
+        "n_gen_steps" : [1],
+        "n_sample" : [5],
+        "run_type" : ["tan-only"],
+        "transformer" : ["image-seg"],
+        "gen_lr" : [5e-5, 1e-4, 1e-3, 1e-2],
+        "disc_lr" : [1e-5, 1e-4, 1e-3, 1e-2],
+        "mse_term" : [5e-5, 1e-4, 1e-3],
+        "seq_len" : [10],
+        "is_test" : [true],
+        "p_transform_init" : [0.40],
+        "plot_every": [40]
+    }
+}
+
+
+

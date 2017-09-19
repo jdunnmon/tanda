@@ -1,0 +1,48 @@
+loading in 1178 images...
+loading in 253 images...
+loading in 253 images...
+X_train.shape: (1178, 100, 100, 2)
+STEP 1: Training TAN
+LOGDIR: /home/jdunnmon/repos/tanda/experiments/ddsm/experiments/log/2017_09_19/tan_only_mammo_0517_2_tfs16_08_16_22/tan/0/logs
+# vars: 552 gen, 4330241 disc, 0 other
+Epoch 0	Batch 1 / 37	D=1.1610	G=0.0197	R=0.0165
+Epoch 0	Batch 2 / 37	D=1.9022	G=0.8785	R=0.7873
+Epoch 0	Batch 3 / 37	D=1.4655	G=2.6223	R=2.5607
+Epoch 0	Batch 4 / 37	D=1.2366	G=3.6797	R=3.7579
+Epoch 0	Batch 5 / 37	D=1.1031	G=4.4180	R=4.5799
+Epoch 0	Batch 6 / 37	D=0.9689	G=4.5688	R=4.7080
+Epoch 0	Batch 7 / 37	D=0.8507	G=4.5015	R=4.5632
+Epoch 0	Batch 8 / 37	D=0.7683	G=4.3925	R=4.2605
+Epoch 0	Batch 9 / 37	D=0.7260	G=4.2292	R=4.0580
+Epoch 0	Batch 10 / 37	D=0.6784	G=4.3649	R=4.1669
+Epoch 0	Batch 11 / 37	D=0.6316	G=4.6146	R=4.3170
+Epoch 0	Batch 12 / 37	D=0.5830	G=4.8867	R=4.6580
+Epoch 0	Batch 13 / 37	D=0.5385	G=5.3310	R=5.0642
+Epoch 0	Batch 14 / 37	D=0.5011	G=5.7315	R=5.5688
+Epoch 0	Batch 15 / 37	D=0.4715	G=6.3063	R=6.1213
+Epoch 0	Batch 16 / 37	D=0.4440	G=6.7874	R=6.5847
+Epoch 0	Batch 17 / 37	D=0.4228	G=7.1758	R=6.9439
+Epoch 0	Batch 18 / 37	D=0.4069	G=7.6502	R=7.4264
+Epoch 0	Batch 19 / 37	D=0.3886	G=8.0111	R=7.8927
+Epoch 0	Batch 20 / 37	D=0.3698	G=8.1720	R=8.0837
+Epoch 0	Batch 21 / 37	D=0.3526	G=8.3223	R=8.2962
+Epoch 0	Batch 22 / 37	D=0.3366	G=8.4762	R=8.3283
+Epoch 0	Batch 23 / 37	D=0.3221	G=8.5578	R=8.4027
+Epoch 0	Batch 24 / 37	D=0.3086	G=8.6513	R=8.3606
+Epoch 0	Batch 25 / 37	D=0.2964	G=8.7260	R=8.4299
+Epoch 0	Batch 26 / 37	D=0.2850	G=8.7673	R=8.3643
+Epoch 0	Batch 27 / 37	D=0.2745	G=8.7664	R=8.3681
+Epoch 0	Batch 28 / 37	D=0.2647	G=8.7418	R=8.3044
+Epoch 0	Batch 29 / 37	D=0.2556	G=8.6979	R=8.2608
+Epoch 0	Batch 30 / 37	D=0.2472	G=8.6734	R=8.2240
+Epoch 0	Batch 31 / 37	D=0.2393	G=8.6146	R=8.2172
+Epoch 0	Batch 32 / 37	D=0.2325	G=8.5593	R=8.2362
+Epoch 0	Batch 33 / 37	D=0.2257	G=8.5608	R=8.2182
+Epoch 0	Batch 34 / 37	D=0.2195	G=8.5331	R=8.2173
+Epoch 0	Batch 35 / 37	D=0.2133	G=8.5673	R=8.2347
+Epoch 0	Batch 36 / 37	D=0.2077	G=8.5929	R=8.2751
+Epoch 0	Batch 37 / 37	D=0.2021	G=8.6194	R=8.3215
+Epoch 0	Batch 37 / 37	D [avg]=0.2021	G [avg]=8.6194	R [avg]=8.3215
+Saved model
+Epoch 1	Batch 1 / 37	D=0.0000	G=11.6311	R=12.1605
+Epoch 1	Batch 2 / 37	D=0.0002	G=12.2269	R=10.9395

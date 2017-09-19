@@ -1,0 +1,30 @@
+{
+    "name" : "mammo_full_run_tfs11",
+    "parameters" : {
+      "generator" : [
+            {
+                "model" : "gru",
+                "config" : {
+                    "n_stack": 1,
+                    "feed_actions": true
+                }
+            }
+        ],
+        "batch_size" : [25],
+        "n_epochs" : [4],
+        "tfs": [11],
+        "end_batch_size" : [25],
+        "end_epochs" : [100],
+        "n_per_class": [150],
+        "n_gen_steps" : [1],
+        "n_sample" : [10],
+        "run_type" : ["tan-only"],
+        "gen_lr" : [1e-6, 1e-5, 1e-4],
+        "disc_lr" : [1e-5, 1e-4, 1e-3],
+        "mse_term" : [1e-4, 1e-3],
+        "seq_len" : [15, 25], 
+        "is_test" : [true],
+        "p_transform_init" : [0.40],
+        "plot_every": [40]
+    }
+}

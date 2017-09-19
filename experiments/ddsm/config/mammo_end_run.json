@@ -1,0 +1,33 @@
+{
+    "name" : "mammo_end_run",
+    "parameters" : {
+      "generator" : [
+            {
+                "model" : "gru",
+                "config" : {
+                    "n_stack": 1,
+                    "feed_actions": true
+                }
+            },
+            {
+                "model" : "mean_field",
+                "config" : {
+                    "feed_actions": false
+                }
+            }
+        ],
+    	"gamma" : [0.0],
+    	"split_data" : [false],
+        "batch_size" : [25],
+    	"n_epochs" : [5],
+    	"n_gen_steps" : [1],
+    	"n_sample" : [10],
+        "tan_only" : [true], 
+		"gen_lr" : [1e-4, 1e-3],
+        "disc_lr" : [1e-5, 1e-4],
+        "mse_term" : [1e-7, 1e-5, 1e-3],
+        "seq_len" : [15], 
+        "is_test" : [true],
+        "plot_every": [40]
+    }
+}

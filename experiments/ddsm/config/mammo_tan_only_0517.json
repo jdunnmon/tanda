@@ -1,0 +1,35 @@
+{
+    "name" : "tan_only_mammo_0517_2_tfs16",
+    "parameters" : {
+        "generator" : [ 
+            {
+                "model" : "gru",
+                "config" : {
+                    "n_stack": 1,
+                    "feed_actions": true,
+                    "init_type": "train"
+                }
+            }
+        ],
+        "gamma" : [0.5],
+        "split_data" : [false],
+        "n_epochs" : [2],
+        "n_gen_steps" : [1],
+        "n_sample" : [5],
+        "data_dir":["/mnt/repos/tanda/experiments/ddsm/data/benign_malignant"],
+        "label_json": ["/mnt/repos/tanda/experiments/ddsm/data/json/mass_to_label.json"],
+        "gen_lr" : [1e-4, 5e-4, 1e-3],
+        "disc_lr" : [1e-5, 1e-4],
+        "mse_term" : [1e-4, 1e-3],
+        "mse_layer": [1],
+        "per_img_std": [false],
+        "seq_len" : [7],
+        "batch_size": [32],
+        "run_type": ["tan-only"],
+        "tfs": [16],
+        "transformer": ["image-seg"],
+        "validation_set": [true],
+        "is_test" : [true], 
+        "plot_every": [4]
+    }
+}
