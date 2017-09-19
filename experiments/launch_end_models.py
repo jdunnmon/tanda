@@ -16,7 +16,7 @@ CTR_LIM = 12
 
 # The args that we need from the TAN experiment config file
 REQUIRED_ARGS = [
-    'generator', 'gen_config', 'run_index', 'seq_len', 'tan', 'tfs'
+    'generator', 'gen_config', 'run_index', 'seq_len', 'tfs'
 ]
 
 
