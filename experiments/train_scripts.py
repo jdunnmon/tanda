@@ -283,6 +283,13 @@ def assemble_tan(dims, tfs, d_class=None, t_class=None, t_kwargs={}):
     else:
         raise ValueError("Unrecognized trans. class: %s" % FLAGS.transformer)
 
+    # Certain transformers will change the dims size...
+    try:
+        dims = transformer.output_dims
+    except AttributeError:
+        pass
+    dims_flat = np.prod(dims)
+
     K = transformer.n_actions  # NOTE: This is *not* necessarily len(tfs)
 
     # Build generator
@@ -341,6 +348,12 @@ def train_tan(X, dims, tfs, log_path, d_class=None, t_class=None,
             lambda v : re.search(r'^gen|disc', v.name) is None, tan_vars)
         nvo, _ = slim.model_analyzer.analyze_vars(tan_vars_o, print_info=False)
         print "# vars: {0} gen, {1} disc, {2} other".format(nvg, nvd, nvo)
+
+    # Check to see if the dims have changed in the TAN
+    try:
+        dims = tan.transformer.output_dims
+    except AttributeError:
+        pass
 
     # Initialize and save log file
     log_dict = create_run_log(LOGDIR, FLAGS)
