@@ -1,7 +1,10 @@
 import copy
 import numpy as np
+import os
 
 from skimage.util import crop, pad
+from PIL import Image
+
 
 
 class Transformer(object):

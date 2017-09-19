@@ -12,7 +12,7 @@ from tanda.generator import (
     GRUGenerator, LSTMGenerator, MeanFieldGenerator
 )
 from tanda.tan import TAN
-from tanda.transformer import ImageTransformer, PadCropTransformer
+from tanda.transformer import ImageTransformer, PadCropTransformer, SegmentTransformer
 from utils import parse_config_str
 
 
@@ -25,7 +25,8 @@ GENERATORS = {
 
 TRANSFORMERS = {
     'image':     ImageTransformer,
-    'image-pct': PadCropTransformer
+    'image-pct': PadCropTransformer,
+    'image-seg': SegmentTransformer
 }
 
 DISCRIMINATORS = {
