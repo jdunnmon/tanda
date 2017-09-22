@@ -579,6 +579,12 @@ def train_end_model(X_train_full, Y_train_full, X_valid, Y_valid,
     # Initialize and save log file
     log_dict = create_run_log(LOGDIR, FLAGS)
 
+    # Check to see if the dims have changed in the TAN
+    try:
+        dims = tan.transformer.output_dims
+    except AttributeError:
+        pass
+
     # Create ImagePlotter for routing images into Tensorboard
     plot_names = ['plot_%s' % run_type]
     img_plotter = ImagePlotter(dims, FLAGS.end_batch_size, PLOTDIR, plot_names)
@@ -622,7 +628,7 @@ def train_end_model(X_train_full, Y_train_full, X_valid, Y_valid,
         D_vars = filter(lambda v : v.name.startswith('D'), vars)
         nv, _ = slim.model_analyzer.analyze_vars(D_vars, print_info=False)
         print "# end discriminator vars: {0}".format(nv)
-    
+ 
     # Train end model
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
