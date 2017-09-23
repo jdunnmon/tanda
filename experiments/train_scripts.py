@@ -660,6 +660,7 @@ def train_end_model(X_train_full, Y_train_full, X_valid, Y_valid,
                 Y_batch = Y_train[b : b + FLAGS.end_batch_size, :]
 
                 # Transform some portion of the batch
+
                 X_batch_t = transform_batch(
                     X_batch, tan, sess, run_type, p_transform)
 
@@ -705,7 +706,7 @@ def train_end_model(X_train_full, Y_train_full, X_valid, Y_valid,
                         ('Loss', loss)
                     ])
                     line_writer(info, newline=True)
-
+                
                 # Plot transformed images in batch
                 if FLAGS.plot_every > 0 and i % FLAGS.plot_every == 0:
                     p = img_plotter.get_image_summaries(sess, [X_batch_t],
