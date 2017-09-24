@@ -487,11 +487,15 @@ def train_tan(X, dims, tfs, log_path, d_class=None, t_class=None,
 def transform_batch(X_batch, tan, sess, run_type, p_transform=1.0):
     """Transforms a portion of a batch of data according to a certain mode"""
     # Pass _all_ data through transform basic (can skip if p_transform = 1.0)
-    if p_transform < 1.0:
-        X_batch_t = tan.transformer.transform_basic(
+    X_batch_t = tan.transformer.transform_basic(
             np.copy(X_batch), train=False)
-    else:
-        X_batch_t = np.copy(X_batch)
+
+    #THIS BREAKS DDSM -- FIGURE OUT WHY
+    #if p_transform < 1.0:
+    #    X_batch_t = tan.transformer.transform_basic(
+    #        np.copy(X_batch), train=False)
+    #else:
+    #    X_batch_t = np.copy(X_batch)
 
     if p_transform > 0.0:
         # Select the data points in the batch to transform
