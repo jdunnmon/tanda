@@ -42,8 +42,19 @@ OPTIMIZERS = {
 }
 
 LR_SCHEDULES = [
-    [(0, 0.1), (8000, 0.01), (12000, 0.001)],
-    [(0, 1e-3), (200, 5e-4), (400, 1e-4)], #for mammo
+    [(0, 0.1), (50000, 0.01), (75000, 0.001)], # From ResNet paper on CIFAR10
+    [(0, 0.1), (5000, 0.01), (7500, 0.001)], # For ResNet on 10% subsample
+    [(0, 0.001), (5000, 0.0001), (7500, 0.00001)], # For DCNN omn 10% subsample
+    [(0, 0.005), (2500, 0.001), (10000, 0.0001)], # For DCNN omn 10% subsample
+    [(0, 0.001), (1000, 0.0001)], # For DCNN omn 1% subsample
+    [(0, 0.1), (3000, 0.01)], # Faster, for ResNet on 10% subsample
+    [(0, 5e-3), (100, 5e-4), (200, 1e-4), (300, 5e-5), (400, 1e-5)], # Mammo lr schedule 3 (10% subsample)
+    [(0, 1e-3), (200, 5e-4), (400, 1e-4)], # Mammo lr schedule 3 (10% subsample)
+    [(0, 1e-4), (200, 5e-5), (400, 1e-5)], # Mammo lr schedule 4 (10% subsample)
+    [(0, 0.1), (8000, 0.01), (12000, 0.001)], # For ResNet on 10% subsample with batch_size=50
+    [(0, 0.001), (5000, 0.0001)], # For DCNN omn 10% subsample
+    [(0, 1e-3), (2000, 5e-4), (4000, 1e-4)], # Mammo lr schedule 3 (10% subsample)
+    [(0, 1e-4), (2000, 5e-5), (4000, 1e-5)] # Mammo lr schedule 4 (10% subsample)
 ]
 #####################################################################
 
