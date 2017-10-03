@@ -1,0 +1,31 @@
+{
+    "name" : "end_model_random_tfs19",
+    "parameters" : {
+        "end_batch_size" : [25],
+        "end_epochs" : [150],
+        "n_per_class": [60],
+        "tfs": [19,20],
+        "seq_len": [1],
+        "n_channels": [2],
+        "segmentations": [true],
+        "data_dir": ["/home/zeshanmh/tanda/experiments/ddsm/data/benign_malignant/crops1000"],
+        "label_json": ["/home/zeshanmh/tanda/experiments/ddsm/data/json/mass_to_label.json"],
+        "end_lr_mode": ["schedule"],
+        "end_lr_schedule": [7,8],
+        "end_weight_decay": [0.0],
+        "end_keep_prob":[1.0],
+        "eval_every": [1],
+        "save_end_model_every" :[50],
+        "plot_every": [5],
+        "is_test": [true],
+        "validation_set": [true],
+        "p_transform_init": [0.6],
+        "p_transform_max": [1.0],
+        "transformer": ["image-seg"],
+        "end_discriminator": ["image_cnn"],
+        "debug": [true],
+        "end_optimizer": ["momentum"],
+        "per_img_std": [true],
+        "run_type": ["random"]
+    }
+}
