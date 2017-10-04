@@ -3,7 +3,7 @@
     "parameters" : {
         "generator" : [ 
             {
-                "model" : "gru",
+                "model" : "lstm",
                 "config" : {
                     "n_stack": 1,
                     "feed_actions": true,
@@ -17,7 +17,7 @@
         "n_gen_steps" : [1],
         "n_sample" : [5],
         "data_dir":["../ddsm-data/benign_malignant"],
-        "label_json": ["../ddsm-data/benign-malignant/mass_to_label.json"],
+        "label_json": ["../ddsm-data/benign_malignant/mass_to_label.json"],
         "gen_lr" : [1e-4, 5e-4, 1e-3],
         "disc_lr" : [1e-5, 1e-4],
         "mse_term" : [1e-4, 1e-3],

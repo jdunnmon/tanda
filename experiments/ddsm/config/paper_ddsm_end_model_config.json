@@ -22,6 +22,6 @@
         "end_discriminator" : ["image_cnn"], 
         "end_optimizer" : ["momentum"],
         "per_img_std" : [false],
-        "run_type": ["random"]
+        "run_type": ["tan-only"]
     }
 }
