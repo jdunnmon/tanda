@@ -133,7 +133,7 @@ class PadCropTransformer(ImageTransformer):
 class SegmentTransformer(ImageTransformer):
 
     def __init__(self, tfs, dims):
-        normal_path = '/home/jdunnmon/research/re/projects/tanda/data/ddsm/benign_malignant/normals'
+        normal_path = '../ddsm-data/benign_malignant/normals'
         normals = [os.path.join(normal_path, file) for file in os.listdir(normal_path)]
         normal_file = np.random.choice(normals)
 
