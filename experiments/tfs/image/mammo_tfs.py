@@ -92,14 +92,17 @@ def TF_translate_structure_with_tissue(imsg, translation=None, num_pixels=10, \
     new_mask[h_lo:h_hi,w_lo:w_hi] = 255
     
     #-39,15
-    new_im = poisson_blending.blend(target, imsg[:,:,0], \
+    try:
+    	new_im = poisson_blending.blend(target, imsg[:,:,0], \
             new_mask, offset=(y_translate, x_translate))    
-    new_seg = np.zeros((dim, dim))
-    new_seg[new_seg_args[0],new_seg_args[1]] = 255
+    	new_seg = np.zeros((dim, dim))
+    	new_seg[new_seg_args[0],new_seg_args[1]] = 255
     
-    im = np.zeros((dim, dim, 2))
-    im[:,:,0] = img_as_float(new_im.astype(np.uint8))
-    im[:,:,1] = img_as_float(new_seg.astype(np.uint8))
+    	im = np.zeros((dim, dim, 2))
+    	im[:,:,0] = img_as_float(new_im.astype(np.uint8))
+    	im[:,:,1] = img_as_float(new_seg.astype(np.uint8))
+    else:
+        im = imsg
 
     return img_as_float(im)
 

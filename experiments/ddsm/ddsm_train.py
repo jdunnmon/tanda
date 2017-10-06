@@ -164,7 +164,7 @@ tfs_24 = [
     [partial(TF_rotate, angle=p) for p in [-5, -2.5, 2.5, 5]],
     [partial(TF_zoom, scale=p) for p in [0.98, 1.02]],
     [partial(TF_enhance_contrast, p=p) for p in [0.95, 1.05]],
-    [partial(TF_translate_structure_with_tissue, translation=p, dim=100,num_pixels=10) \
+    [partial(TF_translate_structure_with_tissue, translation=p, dim=100,num_pixels=20) \
         for p in [(-3,0), (3,0), (0, -3), (0,3), (0,0)]]
 ]
 
