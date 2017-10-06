@@ -59,8 +59,9 @@ def rotate_image(img, angle, pivot):
 def TF_translate_structure_with_tissue(imsg, translation=None, num_pixels=10, \
     target=None, dim=100):
     #convert format
-    # imsg = img_as_float(imsg)
-    imsg = np.uint8(img_as_ubyte(imsg))
+    #imsg = img_as_float(imsg)
+    #imsg = np.uint8(img_as_ubyte(imsg))
+    imsg[:,:,0] = img_as_ubyte(imsg[:,:,0])
     
     #translate/rotate/dilate segmentation
     args = np.where(imsg[:,:,1] != 0)

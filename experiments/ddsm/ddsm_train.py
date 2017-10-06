@@ -159,8 +159,17 @@ tfs_23 = [
     [partial(TF_zoom, scale=p) for p in [0.9, 1.1]],
     [partial(TF_enhance_contrast, p=p) for p in [1.15, 1.05]],
 ]
-tf_sets.append(list(chain.from_iterable(tfs_23)))
 
+tfs_24 = [
+    [partial(TF_rotate, angle=p) for p in [-5, -2.5, 2.5, 5]],
+    [partial(TF_zoom, scale=p) for p in [0.98, 1.02]],
+    [partial(TF_enhance_contrast, p=p) for p in [0.95, 1.05]],
+    [partial(TF_translate_structure_with_tissue, translation=p, dim=100,num_pixels=10) \
+        for p in [(-3,0), (3,0), (0, -3), (0,3), (0,0)]]
+]
+
+tf_sets.append(list(chain.from_iterable(tfs_23)))
+tf_sets.append(list(chain.from_iterable(tfs_24)))
 
 
 #Test 2: Add randomness to TFs? 

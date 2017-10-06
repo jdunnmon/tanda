@@ -1,5 +1,5 @@
 {
-    "name" : "tan_only_mammo_paper_tfs16",
+    "name" : "tan_only_mammo_paper_tfs24",
     "parameters" : {
         "generator" : [ 
             {
@@ -13,20 +13,20 @@
         ],
         "gamma" : [0.5],
         "split_data" : [false],
-        "n_epochs" : [2],
+        "n_epochs" : [15],
         "n_gen_steps" : [1],
         "n_sample" : [5],
         "data_dir":["../ddsm-data/benign_malignant"],
         "label_json": ["../ddsm-data/benign_malignant/mass_to_label.json"],
-        "gen_lr" : [1e-4, 5e-4, 1e-3],
-        "disc_lr" : [1e-5, 1e-4],
-        "mse_term" : [1e-4, 1e-3],
+        "gen_lr" : [5e-4],
+        "disc_lr" : [1e-4],
+        "mse_term" : [1e-3],
         "mse_layer": [1],
         "per_img_std": [false],
         "seq_len" : [7],
         "batch_size": [32],
         "run_type": ["tan-only"],
-        "tfs": [16],
+        "tfs": [24],
         "transformer": ["image-seg"],
         "validation_set": [true],
         "is_test" : [true], 
